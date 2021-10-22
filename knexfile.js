@@ -5,12 +5,7 @@ const connection = getCredentials();
 
 module.exports = {
   client: 'mysql2',
-  connection: {
-    host: 'db',
-    database: 'books-app',
-    user:     'book-user',
-    password: 'password1'
-  },
+  connection: connection,
   pool: {
     min: 2,
     max: 10

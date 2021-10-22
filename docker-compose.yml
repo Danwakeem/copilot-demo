@@ -3,10 +3,10 @@ services:
   web:
     build: .
     command: 'yarn start:docker:local'
-    environment:
-      NODE_ENV: local
+    env_file:
+     - ./.env
     ports:
-      - "4000:4000"
+      - "8080:8080"
     links:
       - db
   db:

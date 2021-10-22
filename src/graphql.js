@@ -50,11 +50,20 @@ const resolvers = {
   },
 };
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  async onHealthCheck() {
+    return true;
+  },
+});
 
 // The `listen` method launches a web server.
-server.listen().then(({ url }) => {
+server.listen({
+  port: 8080,
+}).then(({ url }) => {
   console.log(`🚀  Server ready at ${url}`);
+  console.log(`Try your health check at: ${url}.well-known/apollo/server-health`);
 });
 
 // Close database connections
