@@ -1,0 +1,23 @@
+{
+  "name": "copilot-demo",
+  "version": "1.0.0",
+  "description": "Demo of copilot",
+  "main": "index.js",
+  "author": "Danwakeem",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start:docker:local": "./assets/wait-for-command.sh -c 'nc -z db 3306' && knex migrate:latest && node src/graphql.js",
+    "start:docker": "knex migrate:latest && node src/graphql.js"
+  },
+  "dependencies": {
+    "apollo-server": "^3.4.0",
+    "dotenv": "^10.0.0",
+    "graphql": "^15.6.1",
+    "knex": "^0.95.11",
+    "mysql2": "^2.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
